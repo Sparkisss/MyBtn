@@ -1,0 +1,106 @@
+//Connect fons
+
+// Reset Style File
+@import "nullstyle.scss";
+
+html,body{
+    height: 100%;
+}
+.wrapper {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.button {
+    position: relative;
+    display: inline-block;
+}
+.button:before,
+.button:after{
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 2px solid red;
+    top: -10px;
+    left: 50%;
+    z-index: 1;
+    margin-left: -40px;
+    transition: all 1s ease 0s;
+}
+.button:before{
+    animation: rotate 10s infinite linear;
+}
+.button:after{
+    animation: rotate 30s infinite linear;
+}
+.button__text {
+    position: relative;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 50px;
+    border-radius: 50px;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    color: rgba(0,0,0,0.3);
+    transition: all 1s ease 0s;
+    top: 0;
+    overflow: hidden;
+}
+.button__text:before,
+.button__text:after{
+    content: '';
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: #8c7070;
+    transition: all 1s ease 0s;
+}
+.button__text:before{
+    left: 0;
+    z-index: 2;
+}
+.button__text::after{
+    right: 0;
+}
+.button__text span{
+    position: relative;
+    z-index: 2;
+}
+.button:hover:before,
+.button:hover:after{
+    left: 100%;
+    opacity: 0;
+}
+
+.button:hover .button__text{
+    top:-10px;
+    color: #fff;
+    box-shadow: 0 5px 0 0 #0c5b52;
+    transition: all 0.5s ease 0.5s;
+}
+.button:hover .button__text::before,
+.button:hover .button__text::after{
+    background-color: aquamarine;
+}
+
+.button:hover .button__text::before{
+    width: 100%;
+}
+.button:active .button__text{
+    box-shadow: 0 2px 0 0 #0c5b52;
+    top: -7px;
+    transition: all 0.1s ease 0s;
+}
+@keyframes rotate{
+    0%{
+      transform:rotate(0deg);
+    }
+    100%{
+      transform:rotate(360deg);
+    }
+}
